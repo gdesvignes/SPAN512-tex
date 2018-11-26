@@ -80,13 +80,13 @@
 
 % Title of the paper, and the short title which is used in the headers.
 % Keep the title short and informative.
-\title[SPAN512]{SPAN512: a mid-latitude pulsar survey}
+\title[SPAN512]{The SPAN512 mid-latitude pulsar survey: set-up and initial discoveries}
 
 % The list of authors, and the short list which is used in the headers.
 % If you need two or more lines of authors, add an extra line using \newauthor
 \author[G. Desvignes et al.]{\parbox{\textwidth}{G.~Desvignes,$^{1}$\thanks{E-mail:gdesvignes@mpifr-bonn.mpg.de}
- D.~Champion,$^{1}$
  I.~Cognard,$^{2,3}$
+ D.~Champion,$^{1}$
  P.~Lazarus,$^{1}$
  P.~Lespagnol,$^{3}$
  F.~Octau,$^{2}$
@@ -105,7 +105,7 @@ $^{4}$ Centre d'\'Etudes Nucl\'eaires de Bordeaux Gradignan, IN2P3/CNRS, Univers
 \date{Accepted XXX. Received YYY; in original form ZZZ}
 
 % Enter the current year, for the copyright statements etc.
-\pubyear{2016}
+\pubyear{2018}
 
 % Don't change these lines
 \begin{document}
@@ -174,11 +174,9 @@ section~\ref{sec:results}.
 
 \subsection{Setup}
 
-The SPAN512 survey has been designed as a small-scale survey at
-intermediate latitude to complement the coverage of the Galactic plane
-by the HTRU-North survey \citep{bck+13}. The SPAN512 sky coverage
-($3.5\degr < |b| < 5\degr$ and $\sim 74\degr < l < 150\degr$) is
-delimited towards the inner Galaxy by the P-ALFA survey
+The SPAN512 survey is an intermediate latitude pulsar survey at L-Band whose sky
+coverage ($3.5\degr < |b| < 5\degr$ and $\sim 74\degr < l < 150\degr$)
+is delimited towards the inner Galaxy by the P-ALFA survey
 \citep{cfl+06,lbh+15} and by the HTRU-North survey \citep{bck+13} in
 longitude.
 
@@ -246,21 +244,21 @@ and Figure~\ref{fig:sky} shows the sky coverage of the survey.
 \end{figure*}
 
 
-\subsection{Data reduction}
-
-The analysis was done using the \textsc{PRESTO}-based pipeline
-described in \citet{lbh+15}.
 
 
 \section{Survey processing}
 \label{sec:processing}
+
+The analysis was done using the \textsc{PRESTO}-based pipeline
+described in \citet{lbh+15}.
 
 \subsection{RFI excision}
 
 The first step of the processing is to clean the data in chuncks of
 0.5s for the presence of narrow-band Radio Frequency Interference
 (RFI) with the \textsc{rfifind} tool from the \textsc{PRESTO} package.
-is described in details in \citet{lbh+15}. A set of narrow band channnn
+is described in details in \citet{lbh+15}.
+What is the fixed percentage of zapped data? Zaplist?
 
 Figure~\ref{fig:rfi} shows the evolution of the data being masked due
 to the presence of RFIs.  The median of the percentage of data masked
@@ -290,30 +288,36 @@ dedispersion stage.
 
 \subsection{Search}
 
-Search to a zmax of 150
+Search to a zmax of 150. What is the acceleration? Possible orbits?
 
 \subsection{Candidate folding}
 
-We fold XX candidates
+After the sifting process we fold 150 candidates with sigma above 6.
 
 \subsection{Candidate ranking and visualization}
 
-\citep{lsj+13} and \citep{zbm+14}
+A set of ratings is applied to each of the candidates, including the
+likelihood \citep{lsj+13} and neural networks \citep{zbm+14}.
+The training set is based on .
+XX percent with a score between YY and ZZ.
 
 
 \section{Results}
 \label{sec:results}
 
-\subsection{Known pulsars redetected and missed}
-
-Figure out how many pulsars were redetected and missed.
-
-\input{table_known_psrs}
 
 \subsection{Expected yield}
 
 Rerun pypsrpop
 Ask Ralph for the number of pulsars detected in PMPS
+
+
+\subsection{Known pulsars redetected and missed}
+
+Figure out how many pulsars were redetected and missed, the S/N and what we expected.
+
+\input{table_known_psrs}
+
 
 \subsection{New detections}
 In addition to the redetection of XX known pulsars, we unveiled two new MSPs (PSRs J2055$+$38 and J2260$+$6015) and one slow pulsar (PSR J2048$+$4942). PSR J2055$+$38 will be presented elsewhere (Octau et al., in prep) 
@@ -324,17 +328,16 @@ In addition to the redetection of XX known pulsars, we unveiled two new MSPs (PS
 
 \subsubsection{PSR J2205$+$6015}
 
-Flux, scattering, RM, get high freq observation...
+Flux, spectrum, scattering, RM, get high freq observation...
 
 %$S_{4.85} = 0.030(5)$ mJy
 
-In [4]: s = SkyCoord(``22:05:34.20161 +60:12:55.14172'', unit=(u.hourangle, u.deg) )
-cd ipyth
-In [5]: s.galactic.l.deg
-Out[5]: 103.68606789895186
-
-In [6]: s.galactic.b.deg
-Out[6]: 3.6964002277870587
+%In [4]: s = SkyCoord(``22:05:34.20161 +60:12:55.14172'', unit=(u.hourangle, u.deg) )
+%cd ipyth
+%In [5]: s.galactic.l.deg
+%Out[5]: 103.68606789895186
+%In [6]: s.galactic.b.deg
+%Out[6]: 3.6964002277870587
 
 \subsubsection{Fermi analysis}
 
